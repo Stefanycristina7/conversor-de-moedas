@@ -3,9 +3,11 @@ package br.com.conversordemoedas;
 import java.util.Scanner;
 
 public class Principal {
+    private int opcaoEscolhida;
+    private double valor;
    public void menuInteragir(){
        Scanner entrada = new Scanner(System.in);
-       int opcaoEscolhida;
+
 
        String opcoes = """
                **************************************
@@ -25,6 +27,10 @@ public class Principal {
                """;
        System.out.println(opcoes);
        opcaoEscolhida = entrada.nextInt();
+
+       System.out.println("Qual valor deseja converter? ");
+       valor = entrada.nextDouble();
+
 
    }
 }
