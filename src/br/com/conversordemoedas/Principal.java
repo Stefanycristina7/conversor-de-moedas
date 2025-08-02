@@ -3,8 +3,14 @@ package br.com.conversordemoedas;
 import java.util.Scanner;
 
 public class Principal {
+    private final String CHAVE = System.getenv("EXCHANGE_KEY");
+    private final String URL_BASE = "https://v6.exchangerate-api.com/v6/";
+    private String endereco;
+    private String json;
     private int opcaoEscolhida;
     private double valor;
+    ApiConsulta apiConsulta = new ApiConsulta();
+    ConverterMoedas converterMoedas = new ConverterMoedas();
    public void menuInteragir(){
        Scanner entrada = new Scanner(System.in);
 
@@ -31,6 +37,17 @@ public class Principal {
        System.out.println("Qual valor deseja converter? ");
        valor = entrada.nextDouble();
 
+       switch (opcaoEscolhida){
+           case 1:
+               endereco = URL_BASE+CHAVE+"/pair/USD/ARS/"+valor;
+               json = apiConsulta.obterMoeda(endereco);
+               converterMoedas.conversao(json);
+               break;
+           case 2:
+               endereco = URL_BASE + CHAVE + "/pair/ARS/USD/"+valor;
+               json = apiConsulta.obterMoeda(endereco);
+               converterMoedas.conversao(json);
+       }
 
    }
 }

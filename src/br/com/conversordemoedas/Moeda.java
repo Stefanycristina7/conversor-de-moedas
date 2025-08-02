@@ -45,4 +45,13 @@ public class Moeda {
     public void setResultadoDaConversao(Double resultadoDaConversao) {
         this.resultadoDaConversao = resultadoDaConversao;
     }
+    public String toString(){
+        return """
+            Conversão realizada de %s para %s:
+            Taxa de conversão: %.2f
+            
+            Resultado da conversão: %.2f
+            """.formatted(moedaBase,moedaDestino,taxaDeConversao,resultadoDaConversao);
+    }
+
 }

@@ -12,6 +12,8 @@ public class ConverterMoedas {
 
     public void conversao(String json){
         MoedaApi moedaApi = gson.fromJson(json, MoedaApi.class);
+        Moeda moeda = new Moeda(moedaApi);
+        System.out.println(moeda);
 
     }
 
