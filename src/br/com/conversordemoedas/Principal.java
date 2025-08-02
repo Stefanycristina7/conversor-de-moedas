@@ -43,6 +43,10 @@ public class Principal {
                json = apiConsulta.obterMoeda(endereco);
                converterMoedas.conversao(json);
                break;
+           case 2:
+               endereco = URL_BASE + CHAVE + "/pair/ARS/USD/"+valor;
+               json = apiConsulta.obterMoeda(endereco);
+               converterMoedas.conversao(json);
        }
 
    }
