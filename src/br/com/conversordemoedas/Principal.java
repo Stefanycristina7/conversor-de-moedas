@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Principal {
     private final String CHAVE = System.getenv("EXCHANGE_KEY");
     private final String URL_BASE = "https://v6.exchangerate-api.com/v6/";
-    private String endereco = URL_BASE+CHAVE+"/pair/";
+    private String endereco;
     private String json;
     private int opcaoEscolhida;
     private double valor;
@@ -39,7 +39,7 @@ public class Principal {
 
        switch (opcaoEscolhida){
            case 1:
-               endereco = "USD/ARS/"+valor;
+               endereco = URL_BASE+CHAVE+"/pair/USD/ARS/"+valor;
                json = apiConsulta.obterMoeda(endereco);
                converterMoedas.conversao(json);
                break;
